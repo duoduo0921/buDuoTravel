@@ -1,0 +1,5 @@
+<h2>New Hotel</h2>
+
+<%= render "form.html", Map.put(assigns, :action, hotel_path(@conn, :create)) %>
+
+<span><%= link "Back", to: hotel_path(@conn, :index) %></span>

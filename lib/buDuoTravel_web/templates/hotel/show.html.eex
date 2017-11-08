@@ -1,0 +1,23 @@
+<h2>Show Hotel</h2>
+
+<ul>
+
+  <li>
+    <strong>Location:</strong>
+    <%= @hotel.location %>
+  </li>
+
+  <li>
+    <strong>Checkin:</strong>
+    <%= @hotel.checkIn %>
+  </li>
+
+  <li>
+    <strong>Checkout:</strong>
+    <%= @hotel.checkOut %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: hotel_path(@conn, :edit, @hotel) %></span>
+<span><%= link "Back", to: hotel_path(@conn, :index) %></span>

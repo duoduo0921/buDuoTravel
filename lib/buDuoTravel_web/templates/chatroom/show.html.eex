@@ -1,0 +1,8 @@
+<h2>Show Chatroom</h2>
+
+<ul>
+
+</ul>
+
+<span><%= link "Edit", to: chatroom_path(@conn, :edit, @chatroom) %></span>
+<span><%= link "Back", to: chatroom_path(@conn, :index) %></span>

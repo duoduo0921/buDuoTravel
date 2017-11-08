@@ -1,0 +1,23 @@
+<h2>Show Flight</h2>
+
+<ul>
+
+  <li>
+    <strong>Origin:</strong>
+    <%= @flight.origin %>
+  </li>
+
+  <li>
+    <strong>Destination:</strong>
+    <%= @flight.destination %>
+  </li>
+
+  <li>
+    <strong>Departure date:</strong>
+    <%= @flight.departure_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: flight_path(@conn, :edit, @flight) %></span>
+<span><%= link "Back", to: flight_path(@conn, :index) %></span>
