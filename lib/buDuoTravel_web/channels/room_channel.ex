@@ -21,7 +21,7 @@ defmodule BuDuoTravelWeb.RoomChannel do
 
   def handle_in("message:new", message, socket) do
     broadcast! socket, "message:new", %{
-      user: @current_user,
+      user: socket.assigns.user,
       body: message,
       timestamp: :os.system_time(:milli_seconds)
      }
