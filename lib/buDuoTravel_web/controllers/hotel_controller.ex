@@ -5,8 +5,16 @@ defmodule BuDuoTravelWeb.HotelController do
   alias BuDuoTravel.Travel.Hotel
 
   def index(conn, _params) do
+    changeset = Travel.change_hotel(%Hotel{})
     hotels = Travel.list_hotels()
-    render(conn, "index.html", hotels: hotels)
+    render(conn, "index.html", hotels: hotels, changeset: changeset)
+  end
+
+  def search(conn, %{"loc" => loc, "inn" => inn, "out" => out}) do
+    hotels = Travel.hotel_list(loc, inn, out)
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, Poison.encode!(%{hotels: hotels}))
   end
 
   def new(conn, _params) do

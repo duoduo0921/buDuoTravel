@@ -1,30 +1,27 @@
-<h2>Listing Hotels</h2>
+<HTML><BODY>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Checkin</th>
-      <th>Checkout</th>
+<%= form_for @changeset, "/searchHotels", fn f -> %>
+<H1>Hotel Searching</H1>
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for hotel <- @hotels do %>
-    <tr>
-      <td><%= hotel.location %></td>
-      <td><%= hotel.checkIn %></td>
-      <td><%= hotel.checkOut %></td>
+<div class="form-group">
+  <label class="control-label">Location</label>
+  <input name="loc" id="loc" type="text" />
+</div>
 
-      <td class="text-right">
-        <span><%= link "Show", to: hotel_path(@conn, :show, hotel), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: hotel_path(@conn, :edit, hotel), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: hotel_path(@conn, :delete, hotel), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
+<div class="form-group">
+  <label class="control-label">Check-in</label>
+  <input name="inn" id="inn" type="text" />
+</div>
+
+
+<div class="form-group">
+  <label class="control-label">Check-out</label>
+  <input name="out" id="out" type="text" />
+</div>
+
+
+<div class="form-group">
+    <%= submit "Search", class: "btn btn-primary" %>
+  </div>
 <% end %>
-  </tbody>
-</table>
-
-<span><%= link "New Hotel", to: hotel_path(@conn, :new) %></span>
+</BODY></HTML>

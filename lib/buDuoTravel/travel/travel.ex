@@ -28,6 +28,12 @@ defmodule BuDuoTravel.Travel do
     data["results"]
   end
 
+  def hotel_list(loc, inn, out) do
+    resp = HTTPoison.get!("https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=u9SJXmfraFHyehPZNd1BwukF43eXJGc3&location=#{loc}&check_in=#{inn}&check_out=#{out}", [connect_timeout: 50_000, timeout: 50_000, recv_timeout: 50_000])
+    data = Poison.decode!(resp.body)
+    data["results"]
+end
+
   @doc """
   Gets a single flight.
 

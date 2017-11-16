@@ -15,7 +15,6 @@ defmodule BuDuoTravelWeb.FlightController do
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(200, Poison.encode!(%{flights: flights}))
-    |> redirect(to: flight_path(conn, :index))
   end
     
 

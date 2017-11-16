@@ -12,6 +12,7 @@ defmodule BuDuoTravel.Travel.Hotel do
     timestamps()
   end
 
+
   @doc false
   def changeset(%Hotel{} = hotel, attrs) do
     hotel
