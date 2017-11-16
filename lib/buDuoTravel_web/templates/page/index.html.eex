@@ -1,16 +1,19 @@
+<br>
 <div class="container">
-  <img src="images/hotel.jpg" class="img-rounded">
+ <div class="col-md-12">
+  <a href="/hotels">
+  <img src="<%= static_path(@conn, "/images/hotel.jpg") %>" class= "img-rounded" width=300 height=200 >
+  </a>
+  <a href="/flights">
+  <img src="<%= static_path(@conn, "/images/plane2.jpg") %>" class= "img-rounded" width=300 height=200 >
+  </a>
+  <br><br>
+  <img src="<%= static_path(@conn, "/images/travel.png") %>" class= "img-rounded" width=300 height=200 >
+  <a href="/chatrooms">
+  <img src="<%= static_path(@conn, "/images/chatting.jpg") %>" class= "img-rounded" width=300 height=200 >
+  </a> 
+</div>
 </div>
 
 
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "BuDuoTravel" %></h2>
-  <p class="lead">An application that<br />helps you with travelling.
-  <br/> <%= link "Sign Up", to: user_path(@conn, :new), class: "nav-link"%></p>
-</div>
 
-<%= if @current_user do %>
-<div class="jumbotron">
-<%= link "Chatroom", to: chatroom_path(@conn, :index), class: "nav-link"%>
-</div>
-<% end %>

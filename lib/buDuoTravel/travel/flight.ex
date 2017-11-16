@@ -12,6 +12,13 @@ defmodule BuDuoTravel.Travel.Flight do
     timestamps()
   end
 
+   def flight_list(ori, des, date) do
+    url = "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=u9SJXmfraFHyehPZNd1BwukF43eXJGc3&origin=#{ori}&destination=#{des}&departure_date=#{date}"
+    resp = HTTPoison.get!(url, [connect_timeout: 50_000, timeout: 50_000, recv_timeout: 50_000])
+    data = Poison.decode!(resp.body)
+    data["results"]
+  end
+
   @doc false
   def changeset(%Flight{} = flight, attrs) do
     flight

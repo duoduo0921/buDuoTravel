@@ -5,9 +5,19 @@ defmodule BuDuoTravelWeb.FlightController do
   alias BuDuoTravel.Travel.Flight
 
   def index(conn, _params) do
+    changeset = Travel.change_flight(%Flight{})
     flights = Travel.list_flights()
-    render(conn, "index.html", flights: flights)
+    render(conn, "index.html", flights: flights, changeset: changeset)
   end
+
+  def search(conn, %{"ori" => ori, "des" => des, "dep" => dep}) do
+    flights = Travel.flight_list(ori, des, dep)
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, Poison.encode!(%{flights: flights}))
+    |> redirect(to: flight_path(conn, :index))
+  end
+    
 
   def new(conn, _params) do
     changeset = Travel.change_flight(%Flight{})

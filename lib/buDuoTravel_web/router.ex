@@ -27,6 +27,7 @@ defmodule BuDuoTravelWeb.Router do
     resources "/hotels", HotelController
     resources "/chatrooms", ChatroomController
     get "/", PageController, :index
+    post "/searchFlights", FlightController, :search
   end
 
   # Other scopes may use custom stacks.
