@@ -6,17 +6,20 @@
 <div class="form-group">
   <label class="control-label">Location</label>
   <input name="loc" id="loc" type="text" />
+  (three letters)
 </div>
 
 <div class="form-group">
   <label class="control-label">Check-in</label>
   <input name="inn" id="inn" type="text" />
+  (yyyy-mm-dd)
 </div>
 
 
 <div class="form-group">
   <label class="control-label">Check-out</label>
   <input name="out" id="out" type="text" />
+  (yyyy-mm-dd)
 </div>
 
 

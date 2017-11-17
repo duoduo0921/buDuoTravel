@@ -16,7 +16,8 @@ defmodule BuDuoTravelWeb.FlightController do
        flights = Travel.flight_list(ori, des, dep)  
        render(conn, "searchFlights.html", flights: flights, changeset: changeset)
     rescue
-      RuntimeError -> render(conn, "error.html", changeset: changeset)
+      Protocol.UndefinedError -> render(conn, "error.html", changeset: changeset)
+      HTTPoison.Error -> render(conn, "error.html", changeset: changeset)
     end
   end
     
