@@ -11,10 +11,10 @@ defmodule BuDuoTravelWeb.FlightController do
   end
 
   def search(conn, %{"ori" => ori, "des" => des, "dep" => dep}) do
+    changeset = Travel.change_flight(%Flight{})
     flights = Travel.flight_list(ori, des, dep)
-    conn
-    |> put_resp_content_type("application/json")
-    |> send_resp(200, Poison.encode!(%{flights: flights}))
+    conn  
+    render(conn, "searchFlights.html", flights: flights, changeset: changeset)
   end
     
 

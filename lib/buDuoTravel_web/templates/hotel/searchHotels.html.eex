@@ -1,0 +1,27 @@
+
+
+
+
+<%= Enum.map @hotels, fn h -> %>
+
+<%= Enum.map h["total_price"], fn p -> %>
+  <td><%= inspect(p) %></td>
+  <br><br>
+
+<% end %>
+
+
+<%= Enum.map h["rooms"], fn r -> %>
+  <td><%= inspect(r) %></td>
+  <br><br>
+
+<% end %>
+
+<%= Enum.map h["address"], fn l -> %>
+  <td><%= inspect(l) %></td>
+  <br>
+
+<% end %>
+
+<br><br><br>
+<% end %>

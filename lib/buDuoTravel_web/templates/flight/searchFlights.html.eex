@@ -1,1 +1,31 @@
-hhhhhhh
+   
+      
+
+
+<%= Enum.map @flights, fn ff -> %>
+
+<%= Enum.map ff["itineraries"], fn b -> %>
+  <td><%= inspect(b) %></td>
+  <br><br>
+
+<% end %>
+
+
+<%= Enum.map ff["fare"], fn a -> %>
+  <td><%= inspect(a) %></td>
+  <br>
+
+<% end %>
+
+<br><br>
+<% end %>
+
+
+    
+
+
+
+
+      
+
+

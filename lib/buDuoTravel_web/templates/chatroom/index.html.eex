@@ -1,7 +1,8 @@
+<div class="add-background-image">
 <div class="row">
 
 <div class="container">
-     <div class="jumbotron">
+<div class="add-chatroom-bg">
   <h2><%= gettext "Welcome to %{name}!", name: "my chatroom" %></h2>
 </div>
 
@@ -21,4 +22,5 @@
     </ul>
 </div>
 
+</div>
 </div>

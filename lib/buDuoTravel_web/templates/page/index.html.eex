@@ -1,16 +1,15 @@
-<br>
-<div class="container">
+<div class="container-fluid add-page-bg">
  <div class="col-md-12">
   <a href="/hotels">
-  <img src="<%= static_path(@conn, "/images/hotel.jpg") %>" class= "img-rounded" width=300 height=200 >
+  <img src="<%= static_path(@conn, "/images/hotel.jpg") %>" class= "img-rounded" width=550 height=300 >
   </a>
   <a href="/flights">
-  <img src="<%= static_path(@conn, "/images/plane2.jpg") %>" class= "img-rounded" width=300 height=200 >
+  <img src="<%= static_path(@conn, "/images/plane2.jpg") %>" class= "img-rounded" width=550 height=300 >
   </a>
   <br><br>
-  <img src="<%= static_path(@conn, "/images/travel.png") %>" class= "img-rounded" width=300 height=200 >
+  <img src="<%= static_path(@conn, "/images/travel.png") %>" class= "img-rounded" width=550 height=300 >
   <a href="/chatrooms">
-  <img src="<%= static_path(@conn, "/images/chatting.jpg") %>" class= "img-rounded" width=300 height=200 >
+  <img src="<%= static_path(@conn, "/images/chatting.jpg") %>" class= "img-rounded" width=550 height=300 >
   </a> 
 </div>
 </div>
