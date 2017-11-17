@@ -12,9 +12,12 @@ defmodule BuDuoTravelWeb.FlightController do
 
   def search(conn, %{"ori" => ori, "des" => des, "dep" => dep}) do
     changeset = Travel.change_flight(%Flight{})
-    flights = Travel.flight_list(ori, des, dep)
-    conn  
-    render(conn, "searchFlights.html", flights: flights, changeset: changeset)
+    try do
+       flights = Travel.flight_list(ori, des, dep)  
+       render(conn, "searchFlights.html", flights: flights, changeset: changeset)
+    rescue
+      RuntimeError -> render(conn, "error.html", changeset: changeset)
+    end
   end
     
 

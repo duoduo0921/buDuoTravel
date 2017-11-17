@@ -5,17 +5,37 @@
 <%= Enum.map @flights, fn ff -> %>
 
 <%= Enum.map ff["itineraries"], fn b -> %>
-  <td><%= inspect(b) %></td>
+
+<%= Enum.map b["outbound"]["flights"], fn f -> %>
+
+  <td>flight_number: <%= f["flight_number"] %></td>
+  <br>
+  <td>airline: <%= f["operating_airline"] %></td>
+  <br>
+  <td>departing: <%= f["departs_at"] %></td>
+  <br>
+  <td>arriving: <%= f["arrives_at"] %></td>
+  <br>
+  <td>aircraft: <%= f["aircraft"] %></td>
+  <br>
+  <td>terminal: <%= Enum.into(f["origin"], %{})["terminal"] %></td>
+  <br>
+  <td>ori-airport: <%= Enum.into(f["origin"], %{})["airport"] %></td>
+  <br>
+  <td>des-airport: <%= Enum.into(f["destination"], %{})["airport"] %></td>
+  <br>
+  <td>travel_class: <%= Enum.into(f["booking_info"], %{})["travel_class"] %></td>
+  <br>
+  <td>seats: <%= Enum.into(f["booking_info"], %{})["seats_remaining"] %></td>
   <br><br>
 
 <% end %>
+<% end %>
 
 
-<%= Enum.map ff["fare"], fn a -> %>
-  <td><%= inspect(a) %></td>
+  <td>price: <%= ff["fare"]["total_price"] %>$</td>
   <br>
 
-<% end %>
 
 <br><br>
 <% end %>

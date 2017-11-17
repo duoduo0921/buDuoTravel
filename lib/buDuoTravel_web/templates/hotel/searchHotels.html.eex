@@ -4,24 +4,41 @@
 
 <%= Enum.map @hotels, fn h -> %>
 
-<%= Enum.map h["total_price"], fn p -> %>
-  <td><%= inspect(p) %></td>
+  <td> amount: <%= Enum.into(h["total_price"], %{})["amount"] %>$</td>
   <br><br>
-
-<% end %>
 
 
 <%= Enum.map h["rooms"], fn r -> %>
-  <td><%= inspect(r) %></td>
+
+  <td> room_type: <%= Enum.into(r["room_type_info"], %{})["room_type"] %></td>
+  <br>
+  <td> beds: <%= Enum.into(r["room_type_info"], %{})["number_of_beds"] %></td>
+  <br>
+  <td> bed_type: <%= Enum.into(r["room_type_info"], %{})["bed_type"] %></td>
   <br><br>
 
+<%= Enum.map r["rates"], fn ra -> %>
+  <td> start_date: <%= ra["start_date"] %></td>
+  <br>
+  <td> end_date: <%= ra["end_date"] %></td>
+  <br>
+  <td> price: <%= ra["price"] %>$</td>
+  <br><br>
+<% end %>
 <% end %>
 
-<%= Enum.map h["address"], fn l -> %>
-  <td><%= inspect(l) %></td>
+  
+  <td> region: <%= Enum.into(h["address"], %{})["region"] %></td>
+  <br>
+  <td> zipcode: <%= Enum.into(h["address"], %{})["postal_code"] %></td>
+  <br>
+  <td> address: <%= Enum.into(h["address"], %{})["line1"] %></td>
+  <br>
+  <td> country: <%= Enum.into(h["address"], %{})["country"] %></td>
+  <br>
+  <td> city: <%= Enum.into(h["address"], %{})["city"] %></td>
   <br>
 
-<% end %>
 
 <br><br><br>
 <% end %>

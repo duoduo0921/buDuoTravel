@@ -17,9 +17,11 @@
 
 <div  class="col-md-4">
     <h2>Who’s Online</h2>
+
     <ul id="UserList" class="list-unstyled">
       <li>Loading online users...</li>
     </ul>
+   
 </div>
 
 </div>
