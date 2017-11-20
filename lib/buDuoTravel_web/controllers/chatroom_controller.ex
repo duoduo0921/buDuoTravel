@@ -2,12 +2,18 @@ defmodule BuDuoTravelWeb.ChatroomController do
   use BuDuoTravelWeb, :controller
 
   alias BuDuoTravel.Chat
+  alias BuDuoTravel.Account
   alias BuDuoTravel.Chat.Chatroom
 
   def index(conn, _params) do
+    changeset = Chat.change_chatroom(%Chatroom{})
+    try do
     chatrooms = Chat.list_chatrooms()
     render(conn, "index.html", chatrooms: chatrooms)
+    rescue
+    UndefinedFunctionError -> render(conn, "error.html", changeset: changeset)
   end
+end
 
   def new(conn, _params) do
     changeset = Chat.change_chatroom(%Chatroom{})

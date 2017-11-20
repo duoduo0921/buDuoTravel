@@ -1,44 +1,59 @@
+<div class="hotelresult">
+
+ <div class="container-fluid">
+  <div class="link-top-margin result-bg row text-center">
+   <div class="col-sm-4">
+    <strong class="hidden-xs result-font"> <%= @loc %> </strong>
+   </div>
+
+   <div class="col-sm-4">
+    <strong class="hidden-xs result-font"> <%= @inn %> </strong>
+   </div>
+
+   <div class="col-sm-4">
+    <strong class="hidden-xs result-font"> <%= @out %> </strong>
+   </div>
+  </div>
+ </div>
 
 
+    <%= Enum.map @hotels, fn h -> %>
 
+<div class="container-fluid">
+   <div class="link-top-margin result-bg text-center">
+    <div class="font-white text-center">
 
-<%= Enum.map @hotels, fn h -> %>
+    <%= Enum.map h["rooms"], fn r -> %>
 
-  <td> amount: <%= Enum.into(h["total_price"], %{})["amount"] %>$</td>
-  <br><br>
-
-
-<%= Enum.map h["rooms"], fn r -> %>
-
-  <td> room_type: <%= Enum.into(r["room_type_info"], %{})["room_type"] %></td>
+    <span class="time-font"> room_type: <%= Enum.into(r["room_type_info"], %{})["room_type"] %></span>
   <br>
-  <td> beds: <%= Enum.into(r["room_type_info"], %{})["number_of_beds"] %></td>
-  <br>
-  <td> bed_type: <%= Enum.into(r["room_type_info"], %{})["bed_type"] %></td>
-  <br><br>
+    <span class="time-font"> beds: <%= Enum.into(r["room_type_info"], %{})["number_of_beds"] %></span>
+    &nbsp&nbsp;
+    <span class="time-font> bed_type: <%= Enum.into(r["room_type_info"], %{})["bed_type"] %></span>
+    <br>
 
-<%= Enum.map r["rates"], fn ra -> %>
-  <td> start_date: <%= ra["start_date"] %></td>
-  <br>
-  <td> end_date: <%= ra["end_date"] %></td>
-  <br>
-  <td> price: <%= ra["price"] %>$</td>
-  <br><br>
-<% end %>
-<% end %>
+    <%= Enum.map r["rates"], fn ra -> %>
+    <span class="time-font"> start_date: <%= ra["start_date"] %></span>
+    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+    <span class="time-font"> end_date: <%= ra["end_date"] %></span>
+    <br>
+    <span class="time-font"> price: <%= ra["price"] %></span>
+    <br>
+  <% end %>
+  <% end %>
 
-  
-  <td> region: <%= Enum.into(h["address"], %{})["region"] %></td>
-  <br>
-  <td> zipcode: <%= Enum.into(h["address"], %{})["postal_code"] %></td>
-  <br>
-  <td> address: <%= Enum.into(h["address"], %{})["line1"] %></td>
-  <br>
-  <td> country: <%= Enum.into(h["address"], %{})["country"] %></td>
-  <br>
-  <td> city: <%= Enum.into(h["address"], %{})["city"] %></td>
-  <br>
+  <span class="time-font"> address: <%= Enum.into(h["address"], %{})["line1"] %>,</span>
+  <span class="time-font"><%= Enum.into(h["address"], %{})["city"] %>,</span>
+  <span class="time-font"><%= Enum.into(h["address"], %{})["region"] %>,</span>
+  <span class="time-font"><%= Enum.into(h["address"], %{})["country"] %>,</span>
+  <span class="time-font"><%= Enum.into(h["address"], %{})["postal_code"] %></span>
 
+<br><br>
+<span class="hotel-price-font">USD <%= Enum.into(h["total_price"], %{})["amount"] %></span>
 
-<br><br><br>
-<% end %>
+  </div>
+ </div>
+ </div>
+ <% end %>  
+ </div>
+</div>

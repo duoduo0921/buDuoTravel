@@ -105,4 +105,9 @@ defmodule BuDuoTravel.Account do
   def get_user_by_email!(email) do
     Repo.get_by(User, email: email)
   end
+
+  def get_user_by_name!(username) do
+    Repo.get_by(User, username: username)
+  end
+
 end

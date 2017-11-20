@@ -29,6 +29,8 @@
           <%= link("logout", to: session_path(@conn, :logout), method: :delete) %></h4>
         </span>
       <% else %>
+       <%= link "Sign Up", to: user_path(@conn, :new), class: "nav-link"%>
+
         <%= form_for @conn, session_path(@conn, :login),
              [as: "user", class: "justify-content-md-end form-inline w-75"], fn f -> %>
       <input type="text" placeholder="email"

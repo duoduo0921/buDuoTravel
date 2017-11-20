@@ -1,48 +1,68 @@
+<div class="flightresult">
+
+ <div class="container-fluid">
+  <div class="link-top-margin result-bg row text-center">
+   <div class="col-sm-4">
+    <strong class="hidden-xs result-font"> <%= @ori %> </strong>
+   </div>
+  
+   <div class="col-sm-4">
+    <strong class="hidden-xs result-font"> <%= @des %> </strong>
+   </div>
    
-      
+   <div class="col-sm-4">
+    <strong class="hidden-xs result-font"> <%= @dep %> </strong>
+   </div>
+  </div>
+ </div>
 
-
-<%= Enum.map @flights, fn ff -> %>
-
-<%= Enum.map ff["itineraries"], fn b -> %>
-
-<%= Enum.map b["outbound"]["flights"], fn f -> %>
-
-  <td>flight_number: <%= f["flight_number"] %></td>
-  <br>
-  <td>airline: <%= f["operating_airline"] %></td>
-  <br>
-  <td>departing: <%= f["departs_at"] %></td>
-  <br>
-  <td>arriving: <%= f["arrives_at"] %></td>
-  <br>
-  <td>aircraft: <%= f["aircraft"] %></td>
-  <br>
-  <td>terminal: <%= Enum.into(f["origin"], %{})["terminal"] %></td>
-  <br>
-  <td>ori-airport: <%= Enum.into(f["origin"], %{})["airport"] %></td>
-  <br>
-  <td>des-airport: <%= Enum.into(f["destination"], %{})["airport"] %></td>
-  <br>
-  <td>travel_class: <%= Enum.into(f["booking_info"], %{})["travel_class"] %></td>
-  <br>
-  <td>seats: <%= Enum.into(f["booking_info"], %{})["seats_remaining"] %></td>
-  <br><br>
-
-<% end %>
-<% end %>
-
-
-  <td>price: <%= ff["fare"]["total_price"] %>$</td>
-  <br>
-
-
-<br><br>
-<% end %>
-
-
+  
+  <%= Enum.map @flights, fn ff -> %>
+   <%= Enum.map ff["itineraries"], fn b -> %>
+    <%= Enum.map b["outbound"]["flights"], fn f -> %>
     
+    <div class="container-fluid">
+     <div class="link-top-margin result-bg text-center">
+       <div class="font-white text-center">
+      
+      <span class="time-font"> <%= f["departs_at"] %> </span>
+      <i class="fa fa-long-arrow-right" aria-hidden="true"> </i>
+      <span class="time-font"> <%= f["arrives_at"] %> </span>
+      <br>
 
+      <span class="time-font"> <%= f["flight_number"] %> </span>
+      &nbsp&nbsp;
+      <span class="time-font"> <%= f["operating_airline"] %> </span>
+      &nbsp&nbsp;
+      <span class="time-font"> <%= f["aircraft"] %> </span>
+      <br>
+    
+     <span class="time-font"> ori-airport: <%= Enum.into(f["origin"], %{})["airport"] %> </spa
+n>
+     <span class="time-font"> terminal: <%= Enum.into(f["origin"], %{})["terminal"] %> </span>
+     <i class="fa fa-long-arrow-right" aria-hidden="true"> </i>
+     <span class="time-font"> des-airport: <%= Enum.into(f["destination"], %{})["airport"] %> </span>
+     <br>
+   
+     <span class="time-font"> travel_class: <%= Enum.into(f["booking_info"], %{})["travel_class"] %> </span>
+     <span class="time-font"> seats: <%= Enum.into(f["booking_info"], %{})["seats_remaining"] %> </span>
+     <br>
+     <br>     
+     </div>
+    </div>
+   </div>
+
+     <% end %>
+     <% end %>
+     
+    <div class="col-xs-12  col-sm-6 col-lg-8">
+     <span class="price-font button price-button price-marigin text-center">USD <%= ff["fare"]["total_price"] %> </span>
+     </br>
+    </div>
+
+     <% end %>
+   </div>
+ 
 
 
 

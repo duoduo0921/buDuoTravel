@@ -12,9 +12,17 @@ defmodule BuDuoTravelWeb.HotelController do
 
   def search(conn, %{"loc" => loc, "inn" => inn, "out" => out}) do
     changeset = Travel.change_hotel(%Hotel{})
+    try do
     hotels = Travel.hotel_list(loc, inn, out)
-    conn
-    render(conn, "searchHotels.html", hotels: hotels, changeset: changeset)
+    loc = loc
+    inn = inn
+    out = out
+    render(conn, "searchHotels.html", hotels: hotels, loc: loc, inn: inn, out: out, changeset: changeset)
+    rescue
+      Protocol.UndefinedError -> render(conn, "error.html", changeset: changeset)
+      HTTPoison.Error -> render(conn, "error.html", changeset: changeset)
+      Poison.SyntaxError -> render(conn, "error.html", changeset: changeset)
+    end
   end
 
   def new(conn, _params) do

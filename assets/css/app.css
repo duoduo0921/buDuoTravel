@@ -1,16 +1,120 @@
 /* This file is for your main application css. */
-
-.add-background-image {
-  background-color: lightblue;
+.chatroom-bg {
+  background-image: url("/images/chatbg.gif");
+  background-size: 100% 97%; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.add-chatroom-bg {
-  background-color: #ffdcdc;
-}
 
 .add-page-bg {
   background-color: #f57977;
 }
 
+.add-flightsearch-bg{
+  background-image: url("/images/plane.jpg"); 
+}
 
+.black-shade {
+  z-index: 1;
+  background-color: #2d2a36;
+  height:auto;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
 
+.flighthotel-page {
+  position: relative;
+  z-index: auto;
+  margin-bottom: 20px;
+}
+
+.font-white {
+  color: #f9f9f9;
+}
+
+.border-style {
+  border-style: solid;
+  border-color: #00a5ea;
+  background-color: #ffe4e1;
+}
+
+.flightresult {
+  background-image: url("/images/plane.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.hotelresult {
+  background-image: url("/images/hotelbg.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.link-top-margin {
+  margin-top: 30px;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.result-bg {
+  background-color: black;
+  opacity: 0.8;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.result-font {
+  color: white;
+  font-size: 20px;
+}
+
+.hover {
+  text-decoration: none;
+}
+
+.result-button {
+  border-radius: 15px;
+}
+
+.time-font {
+  font-size: 16px;
+}
+
+.price-font {
+  font-size: 20px;
+  color: white;
+}
+
+.price-button {
+  border-radius: 8px;
+  background-color: #ffa900;
+  float: right;
+}
+
+.price-margin {
+  margin-top: 15px;
+}
+
+.hotel-price-font {
+  font-size: 20px;
+  color: #ffa900;
+}
+
+.error-img {
+  background-image: url("/images/error.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.error-font {
+  font-size: 20px;
+  font-color: #f87cf8;
+  text-align: left;
+}

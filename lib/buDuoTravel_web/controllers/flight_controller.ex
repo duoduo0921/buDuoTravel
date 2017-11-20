@@ -13,11 +13,15 @@ defmodule BuDuoTravelWeb.FlightController do
   def search(conn, %{"ori" => ori, "des" => des, "dep" => dep}) do
     changeset = Travel.change_flight(%Flight{})
     try do
-       flights = Travel.flight_list(ori, des, dep)  
-       render(conn, "searchFlights.html", flights: flights, changeset: changeset)
+       flights = Travel.flight_list(ori, des, dep)
+       ori = ori
+       des = des
+       dep = dep  
+       render(conn, "searchFlights.html", flights: flights, ori: ori, des: des, dep: dep, changeset: changeset)
     rescue
       Protocol.UndefinedError -> render(conn, "error.html", changeset: changeset)
       HTTPoison.Error -> render(conn, "error.html", changeset: changeset)
+      Poison.SyntaxError -> render(conn, "error.html", changeset: changeset)
     end
   end
     
