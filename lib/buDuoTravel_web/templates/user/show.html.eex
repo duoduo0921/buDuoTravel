@@ -14,5 +14,24 @@
 
 </ul>
 
-<span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
-<span><%= link "Back", to: user_path(@conn, :index) %></span>
+<br><br>
+
+<h3>Diaries</h3>
+
+<table class="table">
+    <tr>
+      <th>Content</th>
+      <th>Time</th>
+      <th>Modify</th>
+    </tr>
+
+<%= for diary <- @diaries do %> 
+      <tr>
+      <td><%= diary.content %></td>
+      <td><%= diary.inserted_at %></td>
+      <td><%= if @current_user == @user do %>
+<%= link "Delete", to: diary_path(@conn, :delete, diary), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+<% end %></td>
+</tr>
+<% end %>
+

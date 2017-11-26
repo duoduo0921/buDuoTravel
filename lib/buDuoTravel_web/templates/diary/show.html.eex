@@ -1,0 +1,12 @@
+<h2>This Diary</h2>
+
+<table class="table">
+    <tr>
+      <th>Content</th>
+      <th>Time</th>
+    </tr>
+
+<td><%= @diary.content %></td>
+<td><%= @diary.inserted_at %></td>
+
+

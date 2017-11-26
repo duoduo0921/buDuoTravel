@@ -1,0 +1,35 @@
+<div>
+<h2>All Diaries</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+    </tr>
+</thead>
+
+<%= if @current_user do %>
+  <span><%= link "New Diary", to: diary_path(@conn, :new), class: "btn btn-outline-info" %></span>
+<% end %>
+
+ 
+<%= for diary <- @diaries do %>
+    <tr>
+      <td><%= diary.content %></td>
+
+      <td>
+<%= link diary.user.email, to: user_path(@conn, :show, diary.user) %>
+</td>
+
+      <td class="text-right">
+            <div class="m-2">
+            <span><%= link "Show", to: diary_path(@conn, :show, diary), class: "btn btn-default btn-xs" %></span>
+        
+            </div>            
+
+      </td>
+    </tr>
+<% end %>
+
+</table>

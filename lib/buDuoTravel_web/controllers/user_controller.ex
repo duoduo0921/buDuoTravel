@@ -27,7 +27,8 @@ defmodule BuDuoTravelWeb.UserController do
 
   def show(conn, %{"id" => id}) do
     user = Account.get_user!(id)
-    render(conn, "show.html", user: user)
+    diaries = BuDuoTravel.Repo.preload(BuDuoTravel.Repo.preload(user, :diaries).diaries, :user)
+    render(conn, "show.html", user: user, diaries: diaries)
   end
 
   def edit(conn, %{"id" => id}) do

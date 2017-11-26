@@ -7,17 +7,12 @@
   <img src="<%= static_path(@conn, "/images/plane2.jpg") %>" class= "img-rounded" width=550 height=300 >
   </a>
   <br><br>
+  <a href="/diaries">
   <img src="<%= static_path(@conn, "/images/travel.png") %>" class= "img-rounded" width=550 height=300 >
-<%= if @current_user do %>
+  </a>
   <a href="/chatrooms">
   <img src="<%= static_path(@conn, "/images/chatting.jpg") %>" class= "img-rounded" width=550 height=300 >
   </a> 
-<% else %>
-  <a href="/chatrooms">
-  <img src="<%= static_path(@conn, "/images/chatting.jpg") %>" class= "img-rounded" width=550 height=300 >
-  </a>
-<% end %>
-
 </div>
 </div>
 

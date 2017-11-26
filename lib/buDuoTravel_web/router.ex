@@ -26,6 +26,7 @@ defmodule BuDuoTravelWeb.Router do
     resources "/flights", FlightController
     resources "/hotels", HotelController
     resources "/chatrooms", ChatroomController
+    resources "/diaries", DiaryController
     get "/", PageController, :index
     post "/searchFlights", FlightController, :search
     post "/searchHotels", HotelController, :search

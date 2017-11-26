@@ -1,0 +1,5 @@
+<h2>Edit Diary</h2>
+
+<%= render "form.html", Map.put(assigns, :action, diary_path(@conn, :update, @diary)) %>
+
+<span><%= link "Back", to: diary_path(@conn, :index) %></span>
