@@ -22,14 +22,14 @@ defmodule BuDuoTravel.Travel do
   end
 
   def flight_list(ori, des, date) do
-    url = "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=u9SJXmfraFHyehPZNd1BwukF43eXJGc3&origin=#{ori}&destination=#{des}&departure_date=#{date}"
+    url = "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=bi1I6W1GG7FjcTdSfS4UCO8H9NlNQC8k&origin=#{ori}&destination=#{des}&departure_date=#{date}"
     resp = HTTPoison.get!(url, [connect_timeout: 50_000, timeout: 50_000, recv_timeout: 50_000])
     data = Poison.decode!(resp.body)
     data["results"]
   end
 
   def hotel_list(loc, inn, out) do
-    resp = HTTPoison.get!("https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=u9SJXmfraFHyehPZNd1BwukF43eXJGc3&location=#{loc}&check_in=#{inn}&check_out=#{out}", [connect_timeout: 50_000, timeout: 50_000, recv_timeout: 50_000])
+    resp = HTTPoison.get!("https://api.sandbox.amadeus.com/v1.2/hotels/search-airport?apikey=bi1I6W1GG7FjcTdSfS4UCO8H9NlNQC8k&location=#{loc}&check_in=#{inn}&check_out=#{out}", [connect_timeout: 50_000, timeout: 50_000, recv_timeout: 50_000])
     data = Poison.decode!(resp.body)
     data["results"]
 end
