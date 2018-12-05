@@ -1,4 +1,5 @@
-# BuDuoTravel - An Elixir and Phoenix and Postgres Database App
+# BuDuoTravel
+An Elixir and Phoenix and Postgres Database App
 
 To start your Phoenix server:
 
